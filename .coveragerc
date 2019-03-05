@@ -1,0 +1,6 @@
+[run]
+omit =
+    .tox/*
+    setup.py
+    .venv/**/*
+    home/**/*

@@ -1,0 +1,11 @@
+pylint
+autopep8
+coverage
+tox
+pytest
+flake8-django
+pylint-django
+black
+tox-travis
+
+django
