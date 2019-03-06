@@ -14,7 +14,9 @@ matrix:
         - TOXENV=coverage
 install: pip install tox-travis
 script: tox
-
+stages:
+- test
+- deploy
 jobs:
   include:
     - stage: Deploy to Pypi
@@ -22,5 +24,7 @@ jobs:
         - provider: script
           script: python setup.py sdist bdist_wheel && python -m twine upload -u ricardobchaves6 -p $PYPIPASSWORD dist/*
           skip_cleanup: true
+          env:
+            - TOXENV=django21
           on:
             branch: test-travis
