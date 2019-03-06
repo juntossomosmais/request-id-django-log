@@ -23,5 +23,7 @@ jobs:
         distributions: sdist bdist_wheel
         env:
           - TOXENV=django21
+        python:
+          - "3.7"
 
 
