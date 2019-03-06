@@ -16,7 +16,7 @@ matrix:
       env:
         - TOXENV=coverage
 install: pip install tox-travis
-script: tox
+script: tox --travis-after
 #jobs:
 #  include:
 #    - stage: Deploy to Pypi
