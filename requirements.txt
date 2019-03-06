@@ -1,11 +1,10 @@
+black
 pylint
+pylint-django
+flake8-django
 autopep8
 coverage
-tox
 pytest
-flake8-django
-pylint-django
-black
 tox-travis
-
+wheel
 django
