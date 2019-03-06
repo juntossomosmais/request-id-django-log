@@ -41,7 +41,7 @@ jobs:
       deploy:
         provider: pypi
         user: jsmpypi
-        password: $PYPIPASSWORD
+        password: $PYPIPASSWORDTEST
         on:
           branch: develop
         distributions: sdist bdist_wheel
