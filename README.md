@@ -33,6 +33,7 @@ REQUEST_ID_CONFIG = {
     "RESPONSE_HEADER_REQUEST_ID": "HTTP_X_REQUEST_ID",
 }
 ```
+
 - `REQUEST_ID_HEADER` is the header name which will hold the received request_id. This must be used when another system is responsible for generating the request_ids and sending them to your django application.
 - `GENERATE_REQUEST_ID_IF_NOT_FOUND` If set to true, a new request_id will be generated if none was previously supplied.
 - `RESPONSE_HEADER_REQUEST_ID` sets the name of the response header which will hold the value of the request_id.
