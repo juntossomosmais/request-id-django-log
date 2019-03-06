@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="request_id_django_log",
-    version="0.0.1",
+    version="0.1.0",
     description="A simple way to implement request_id in Django",
     long_description=README,
     include_package_data=True,
