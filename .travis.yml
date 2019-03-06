@@ -31,8 +31,8 @@ script: tox
 
 deploy:
   provider: pypi
-  user: spam
-  password: eggs # Make sure to encrypt passwords!
+  user: jsmpypi
+  password: $PYPIPASSWORD # Make sure to encrypt passwords!
   on:
     branch: test-travis
   distributions: sdist bdist_wheel
