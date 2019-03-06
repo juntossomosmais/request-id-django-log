@@ -25,7 +25,7 @@ jobs:
       after_script:
         - ./cc-test-reporter after-build -d -t coverage.py --exit-code $TRAVIS_TEST_RESULT
     - stage: Deploy to Pypi
-      if: branch = master
+      if: NOT type IN (pull_request) AND branch = master
       python:
           - "3.7"
       env:
@@ -39,7 +39,7 @@ jobs:
         distributions: sdist bdist_wheel
 
     - stage: Deploy to Pypi Test Server
-      if: branch = develop
+      if: NOT type IN (pull_request) AND branch = develop
       python:
           - "3.7"
       env:
