@@ -1,0 +1,25 @@
+version: "2"
+plugins:
+  pep8:
+    enabled: true
+
+  markdownlint:
+    enabled: true
+
+  sonar-python:
+    enabled: true
+
+  csslint:
+    enabled: true
+
+  bandit:
+    enabled: true
+    config:
+      python_version: 3
+
+exclude_patterns:
+  - "**/test/"
+  - "**/.venv/"
+  - "**/build/"
+  - "**/dist/"
+  - "**/request_id_django_log.egg-info/"

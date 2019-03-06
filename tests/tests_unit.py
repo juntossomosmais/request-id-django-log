@@ -1,11 +1,12 @@
+import uuid
+
 from django.test import TestCase
+
+from request_id_django_log import local_threading
 from request_id_django_log.apps import RequestIdDjangoLogConfig
 from request_id_django_log.filters import RequestIDFilter
-from request_id_django_log import local_threading
 from request_id_django_log.middleware import RequestIdDjangoLog
 from request_id_django_log.request_id import current_request_id
-from request_id_django_log import local_threading
-import uuid
 
 try:
     from unittest.mock import MagicMock, patch
