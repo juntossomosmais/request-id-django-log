@@ -1,7 +1,7 @@
 import django
+from django.test import Client, TestCase
 
 django.setup()
-from django.test import TestCase, Client
 
 try:
     from unittest.mock import MagicMock
