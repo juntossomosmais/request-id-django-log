@@ -28,8 +28,19 @@ jobs:
         user: jsmpypi
         password: $PYPIPASSWORD
         on:
-          branch: test-travis
+          branch: master
         distributions: sdist bdist_wheel
 
-
-
+    - stage: Deploy to Pypi Test Server
+      python:
+          - "3.7"
+      env:
+        - TOXENV=django21
+      deploy:
+        provider: pypi
+        user: jsmpypi
+        password: $PYPIPASSWORD
+        on:
+          branch: develop
+        distributions: sdist bdist_wheel
+        server: https://test.pypi.org/legacy/
