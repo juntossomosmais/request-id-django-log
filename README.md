@@ -1,6 +1,7 @@
 # Request ID Django Log
 
-[![Build Status](https://travis-ci.com/juntossomosmais/request-id-django-log.svg?token=cfB1EHQmosyKPne1bPRP&branch=master)](https://travis-ci.com/juntossomosmais/request-id-django-log)
+[![Build Status](https://travis-ci.com/juntossomosmais/request-id-django-log.svg?token=cfB1EHQmosyKPne1bPRP&branch=master)](https://travis-ci.com/juntossomosmais/request-id-django-log) [![Maintainability](https://api.codeclimate.com/v1/badges/bb134244b75f5e0a8893/maintainability)](https://codeclimate.com/github/juntossomosmais/request-id-django-log/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/bb134244b75f5e0a8893/test_coverage)](https://codeclimate.com/github/juntossomosmais/request-id-django-log/test_coverage) [![Coverage Status](https://coveralls.io/repos/github/juntossomosmais/request-id-django-log/badge.svg?branch=master)](https://coveralls.io/github/juntossomosmais/request-id-django-log?branch=master) [![PyPI version](https://badge.fury.io/py/request-id-django-log.svg)](https://badge.fury.io/py/request-id-django-log) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+ [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/ricardochaves)
 
 ## Install
 
