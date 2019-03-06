@@ -30,7 +30,7 @@ jobs:
         on:
           branch: master
         distributions: sdist bdist_wheel
-
+        if: branch = master
     - stage: Deploy to Pypi Test Server
       python:
           - "3.7"
@@ -44,3 +44,4 @@ jobs:
           branch: develop
         distributions: sdist bdist_wheel
         server: https://test.pypi.org/legacy/
+        if: branch = develop
