@@ -24,7 +24,7 @@ MIDDLEWARE = [
 
 ## Configure
 
-You have the follow options
+The following options are used by this library:
 
 ```python
 REQUEST_ID_CONFIG = {
@@ -33,9 +33,10 @@ REQUEST_ID_CONFIG = {
     "RESPONSE_HEADER_REQUEST_ID": "HTTP_X_REQUEST_ID",
 }
 ```
-- `REQUEST_ID_HEADER` is the name of the header that will have the request_id received. Used when your system is not the first one in the chain.
-- `GENERATE_REQUEST_ID_IF_NOT_FOUND` If true it will generate a request_id if the header is not found.
-- `RESPONSE_HEADER_REQUEST_ID` What is the name of the response header that will have the value of the request_id.
+
+- `REQUEST_ID_HEADER` is the header name which will hold the received request_id. This must be used when another system is responsible for generating the request_ids and sending them to your django application.
+- `GENERATE_REQUEST_ID_IF_NOT_FOUND` If set to true, a new request_id will be generated if none was previously supplied.
+- `RESPONSE_HEADER_REQUEST_ID` sets the name of the response header which will hold the value of the request_id.
 
 ## Supported Versions
 

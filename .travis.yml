@@ -14,22 +14,18 @@ script: tox
 jobs:
   include:
     - stage: Coverage
-      install:
-        - pip install coverage coveralls django==2.1
+      python:
+          - "3.7"
+      env:
+        - TOXENV=coverage
       before_script:
-        - apt-cache policy libpq-dev
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         - chmod +x ./cc-test-reporter
         - ./cc-test-reporter before-build
-      script:
-        - coverage run --branch --omit={envdir}/*, {envbindir}/django-admin.py test
-        - coverage xml
       after_script:
         - ./cc-test-reporter after-build -d -t coverage.py --exit-code $TRAVIS_TEST_RESULT
-      python:
-          - "3.7"
     - stage: Deploy to Pypi
-      if: branch = master
+      if: NOT type IN (pull_request) AND branch = master
       python:
           - "3.7"
       env:
@@ -43,7 +39,7 @@ jobs:
         distributions: sdist bdist_wheel
 
     - stage: Deploy to Pypi Test Server
-      if: branch = develop
+      if: NOT type IN (pull_request) AND branch = develop
       python:
           - "3.7"
       env:
