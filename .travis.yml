@@ -14,12 +14,12 @@ script: tox --travis-after
 jobs:
   include:
     - stage: Deploy to Pypi
-    deploy:
-      provider: pypi
-      user: jsmpypi
-      password: $PYPIPASSWORD
-      on:
-        branch: test-travis
-      distributions: sdist bdist_wheel
+      deploy:
+        provider: pypi
+        user: jsmpypi
+        password: $PYPIPASSWORD
+        on:
+          branch: test-travis
+        distributions: sdist bdist_wheel
 
 
