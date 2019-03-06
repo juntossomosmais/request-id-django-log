@@ -15,7 +15,7 @@ jobs:
   include:
     - stage: Coverage
       install:
-        - pip install coverage coveralls django>=2.1, <2.2
+        - pip install coverage coveralls django==2.1
       before_script:
         - apt-cache policy libpq-dev
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
