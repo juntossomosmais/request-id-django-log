@@ -1,5 +1,6 @@
 sudo: false
 language: python
+dist: xenial
 cache: pip
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
@@ -7,34 +8,18 @@ python:
     - "2.7"
     - "3.5"
     - "3.6"
-matrix:
-  include:
-    - python: 3.7
-      dist: xenial
-    - python: 3.7
-      dist: xenial
-      env:
-        - TOXENV=coverage
+    - "3.7"
 install: pip install tox-travis
 script: tox --travis-after
-#jobs:
-#  include:
-#    - stage: Deploy to Pypi
-#      deploy:
-#        - provider: script
-#          script: python setup.py sdist bdist_wheel && python -m twine upload -u ricardobchaves6 -p $PYPIPASSWORD dist/*
-#          skip_cleanup: true
-#          env:
-#            - TOXENV=django21
-#          on:
-#            branch: test-travis
+jobs:
+  include:
+    - stage: Deploy to Pypi
+    deploy:
+      provider: pypi
+      user: jsmpypi
+      password: $PYPIPASSWORD
+      on:
+        branch: test-travis
+      distributions: sdist bdist_wheel
 
-deploy:
-  provider: pypi
-  user: jsmpypi
-  password: $PYPIPASSWORD # Make sure to encrypt passwords!
-  on:
-    branch: test-travis
-    python: 3.7
-    condition: $DJANGO = "2.1"
-  distributions: sdist bdist_wheel
+
