@@ -38,6 +38,8 @@ REQUEST_ID_CONFIG = {
 - `GENERATE_REQUEST_ID_IF_NOT_FOUND` If set to true, a new request_id will be generated if none was previously supplied.
 - `RESPONSE_HEADER_REQUEST_ID` sets the name of the response header which will hold the value of the request_id.
 
+With this configuration if the request have the header `X-REQUEST-ID` the library will use this header value.
+
 ## Supported Versions
 
 - `python 2.7` with Django `1.8`, `1.9` and `1.11`
