@@ -38,6 +38,35 @@ REQUEST_ID_CONFIG = {
 - `GENERATE_REQUEST_ID_IF_NOT_FOUND` If set to true, a new request_id will be generated if none was previously supplied.
 - `RESPONSE_HEADER_REQUEST_ID` sets the name of the response header which will hold the value of the request_id.
 
+## Logs
+
+If you want your logs to have the request id, add the following lines to your logging dictionary configuration:
+
+```python
+LOGGING = {
+    ...
+    "filters": {"request_id": {"()": "request_id_django_log.filters.RequestIDFilter"}},
+    "formatters": {
+        "standard": {
+            ...
+            "format": "%(levelname)-8s [%(asctime)s] [%(request_id)s] %(name)s: %(message)s",
+        },
+        ...
+    },
+    "handlers": {
+        "console": {
+            ...
+            "filters": ["request_id"],
+            ...
+        }
+    },
+    "loggers": {
+        "": {"level": "INFO", "handlers": ["console"]},
+        ...
+    },
+}
+```
+
 ## Supported Versions
 
 - `python 2.7` with Django `1.8`, `1.9` and `1.11`
