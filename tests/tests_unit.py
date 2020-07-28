@@ -1,10 +1,10 @@
 import uuid
 
 from django.test import TestCase
-
 from request_id_django_log import local_threading
 from request_id_django_log.apps import RequestIdDjangoLogConfig
 from request_id_django_log.filters import RequestIDFilter
+from request_id_django_log.filters import SessionIDFilter
 from request_id_django_log.middleware import RequestIdDjangoLog
 from request_id_django_log.request_id import current_request_id
 
@@ -103,3 +103,25 @@ class RequestIDTestCase(TestCase):
         """Current Request ID: Should return none when local_thead dont have value"""
 
         self.assertEqual(current_request_id(), "none")
+
+    def test_session_id_filter_should_set_record_session_id_as_return_value_from_settings_callable(
+        self
+    ):
+        """Filter: Should set record session_id as "abc", the return value from the settings callable"""
+        mock_record, session_id_filter = MagicMock(), SessionIDFilter()
+        result = session_id_filter.filter(mock_record)
+
+        self.assertEqual(mock_record.session_id, "abc")
+        self.assertTrue(result)
+
+    def test_session_id_filter_should_set_record_session_id_as_value_from_settings(
+        self
+    ):
+        """Filter: Should set record session_id as "def", the value from the settings storage"""
+        mock_record, session_id_filter = MagicMock(), SessionIDFilter()
+        session_id_filter.SESSION_ID_CONFIG = {"SESSION_ID_STORAGE": "def"}
+
+        result = session_id_filter.filter(mock_record)
+
+        self.assertEqual(mock_record.session_id, "def")
+        self.assertTrue(result)
