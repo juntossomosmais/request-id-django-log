@@ -9,10 +9,10 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="request_id_django_log",
-    version="0.1.1",
+    version="0.2.0",
     description="A simple way to implement request_id in Django",
     long_description=README,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     include_package_data=True,
     author="Ricardo Baltazar Chaves",
     author_email="ricardobchaves6@gmail.com",
@@ -32,6 +32,8 @@ setup(
         "Framework :: Django :: 1.9",
         "Framework :: Django :: 2.0",
         "Framework :: Django :: 2.1",
+        "Framework :: Django :: 2.2",
+        "Framework :: Django :: 3.0",
         "Environment :: Web Environment",
         "Natural Language :: Portuguese (Brazilian)",
         "Development Status :: 4 - Beta",
