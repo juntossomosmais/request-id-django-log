@@ -41,4 +41,4 @@ REQUEST_ID_CONFIG = {
 ## Supported Versions
 
 - `python 2.7` with Django `1.8`, `1.9` and `1.11`
-- `python 3.5`, `3.6` and `3.7` with Django `1.8`, `1.9`, `1.11`, `2.0` and `2.1`
+- `python 3.5`, `3.6` and `3.7` with Django `1.8`, `1.9`, `1.11`, `2.0`, `2.1`, `2.2` and `3.0`
