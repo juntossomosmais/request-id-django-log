@@ -8,6 +8,8 @@ REQUEST_ID_CONFIG = {
     "RESPONSE_HEADER_REQUEST_ID": "HTTP_X_REQUEST_ID",
 }
 
+SESSION_ID_CONFIG = {"SESSION_ID_STORAGE": lambda: "abc"}
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

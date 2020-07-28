@@ -1,6 +1,6 @@
 # Request ID Django Log
 
-[![Build Status](https://travis-ci.com/juntossomosmais/request-id-django-log.svg?token=cfB1EHQmosyKPne1bPRP&branch=master)](https://travis-ci.com/juntossomosmais/request-id-django-log) [![Maintainability](https://api.codeclimate.com/v1/badges/bb134244b75f5e0a8893/maintainability)](https://codeclimate.com/github/juntossomosmais/request-id-django-log/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/bb134244b75f5e0a8893/test_coverage)](https://codeclimate.com/github/juntossomosmais/request-id-django-log/test_coverage) [![Coverage Status](https://coveralls.io/repos/github/juntossomosmais/request-id-django-log/badge.svg?branch=master)](https://coveralls.io/github/juntossomosmais/request-id-django-log?branch=master) [![PyPI version](https://badge.fury.io/py/request-id-django-log.svg)](https://badge.fury.io/py/request-id-django-log) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Build Status](https://travis-ci.com/juntossomosmais/request-id-django-log.svg?token=cfB1EHQmosyKPne1bPRP&branch=master)](https://travis-ci.com/juntossomosmais/request-id-django-log) [![Maintainability](https://api.codeclimate.com/v1/badges/bb134244b75f5e0a8893/maintainability)](https://codeclimate.com/github/juntossomosmais/request-id-django-log/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/bb134244b75f5e0a8893/test_coverage)](https://codeclimate.com/github/juntossomosmais/request-id-django-log/test_coverage) [![Coverage Status](https://coveralls.io/repos/github/juntossomosmais/request-id-django-log/badge.svg?branch=master)](https://coveralls.io/github/juntossomosmais/request-id-django-log?branch=master) [![PyPI version](https://badge.fury.io/py/request-id-django-log.svg)](https://badge.fury.io/py/request-id-django-log) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black) [![Downloads](https://pepy.tech/badge/request-id-django-log)](https://pepy.tech/project/request-id-django-log) [![Downloads](https://pepy.tech/badge/request-id-django-log/month)](https://pepy.tech/project/request-id-django-log) [![Downloads](https://pepy.tech/badge/request-id-django-log/week)](https://pepy.tech/project/request-id-django-log)
  [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/ricardochaves)
 
 ## Install
@@ -40,7 +40,36 @@ REQUEST_ID_CONFIG = {
 
 With this configuration if the request have the header `X-REQUEST-ID` the library will use this header value.
 
+## Logs
+
+If you want your logs to have the request id, add the following lines to your logging dictionary configuration:
+
+```python
+LOGGING = {
+    ...
+    "filters": {"request_id": {"()": "request_id_django_log.filters.RequestIDFilter"}},
+    "formatters": {
+        "standard": {
+            ...
+            "format": "%(levelname)-8s [%(asctime)s] [%(request_id)s] %(name)s: %(message)s",
+        },
+        ...
+    },
+    "handlers": {
+        "console": {
+            ...
+            "filters": ["request_id"],
+            ...
+        }
+    },
+    "loggers": {
+        "": {"level": "INFO", "handlers": ["console"]},
+        ...
+    },
+}
+```
+
 ## Supported Versions
 
 - `python 2.7` with Django `1.8`, `1.9` and `1.11`
-- `python 3.5`, `3.6` and `3.7` with Django `1.8`, `1.9`, `1.11`, `2.0` and `2.1`
+- `python 3.5`, `3.6` and `3.7` with Django `1.8`, `1.9`, `1.11`, `2.0`, `2.1`, `2.2` and `3.0`
