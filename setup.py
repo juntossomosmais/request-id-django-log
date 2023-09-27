@@ -11,7 +11,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="request_id_django_log",
-    version="0.2.0",
+    version="0.2.1",
     description="A simple way to implement request_id in Django",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -20,7 +20,7 @@ setup(
     author_email="ricardobchaves6@gmail.com",
     license="MIT",
     url="https://github.com/juntossomosmais/request-id-django-log",
-    packages=find_packages(),
+    packages=find_packages(exclude=("tests", "tests.*")),
     install_requires=[],
     classifiers=[
         "Programming Language :: Python",
